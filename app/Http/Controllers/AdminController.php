@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class AdminController extends Controller
         return view('admin.quizzes', compact('category'));
     }
     public function delete($id){
+        
         Category::where('id',$id)->delete();
 
         return redirect('/admin/dashboard/categories');
