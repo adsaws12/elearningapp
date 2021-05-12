@@ -7,14 +7,16 @@
             <h1>Admin Dashboard | Categories</h1>
 
             <ul class="list-group list-group-horizontal mt-4 mb-3">
-                <li class="list-unstyled "><a href="#">Categories</a></li>
-                <li class="list-unstyled ml-3"><a href="#">Users</a></li>
+                <li class="list-unstyled "><a href="{{ route('admin.dashboard.categories') }}">Categories</a></li>
+                <li class="list-unstyled ml-3"><a href="{{ route('admin.dashboard.users') }}">Users</a></li>
             </ul>
             <hr class=" mb-5">
         </div>
         <div class="ml-auto mt-2 mb-2 mr-2">
             <a href="{{ route('admin.dashboard.categories.category') }}" class="btn btn-success">New Category</i></a>
         </div>
+
+
         <table class="table table-striped  justify-content-center">
             <thead class="thead-dark">
                 <tr>
@@ -39,7 +41,6 @@
                     </td>
                 </tr>
             @endforeach
-           
         </table>
     </div>
 </div>

@@ -20,7 +20,16 @@ Route::get('/', function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-//categories
+
+//Users
+Route::get('/admin/dashboard/users', 'UserController@users')->name('admin.dashboard.users');
+Route::get('/admin/dashboard/users/register', 'UserController@register')->name('admin.dashboard.user.register');
+Route::post('/admin/dashboard/users/register/create', 'UserController@create')->name('admin.dashboard.user.register.create');
+Route::delete('/admin/dashboard/user/delete/{user}', 'UserController@delete')->name('admin.dashboard.user.delete');
+Route::get('/admin/dashboard/users/edit/{user}', 'UserController@edit')->name('admin.dashboard.user.edit');
+Route::patch('/admin/dashboard/users/edit/update/{user}', 'UserController@update')->name('admin.dashboard.user.update');
+
+//Admin categories
 Route::get('/admin/dashboard/categories', 'AdminController@index')->name('admin.dashboard.categories');
 Route::get('/admin/dashboard/categories/category', 'AdminController@category')->name('admin.dashboard.categories.category');
 Route::post('/admin/dashboard/categories/category/create', 'AdminController@store')->name('admin.dashboard.categories.category.create');
