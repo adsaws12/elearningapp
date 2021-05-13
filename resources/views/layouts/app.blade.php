@@ -59,7 +59,7 @@
                                 <a href="#" class="nav-link">Categories</a>
                             </li>
                             <li class="nav-item ">
-                                <a href="#" class="nav-link">Users</a>
+                                <a href="{{ route('home.userslist') }}" class="nav-link">Users</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

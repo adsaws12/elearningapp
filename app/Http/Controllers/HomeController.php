@@ -27,4 +27,8 @@ class HomeController extends Controller
         $users = User::where('id', '=', auth()->user()->id);
         return view('home', compact('users'));
     }
+    public function users(){
+        $users = User::where('id', '!=', auth()->user()->id)->get();
+        return view('user.users', compact('users'));
+    }
 }
