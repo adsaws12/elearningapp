@@ -19,7 +19,7 @@ Route::get('/', function(){
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home/userslist', 'HomeController@users')->name('home.userslist');
 
 //Users
 Route::get('/admin/dashboard/users', 'UserController@users')->name('admin.dashboard.users');
@@ -42,3 +42,4 @@ Route::patch('/admin/dashboard/categories/update/{category}', 'AdminController@u
 
 //Question
 Route::get('/admin/dashboard/categories/category/lesson/question/{category}', 'AdminController@question')->name('admin.dashboard.categories.question');
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -16,10 +17,11 @@ class UserController extends Controller
         return view('admin.users.register');
     }
     public function create(Request $request){
+        
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'password_confirmation' => $request->password_confirmation,
             'usertype' => $request->usertype,
         ]);
