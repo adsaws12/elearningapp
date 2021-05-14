@@ -34,6 +34,6 @@ class HomeController extends Controller
     public function profileview($id){
         $userprofile = User::find($id);
 
-        return view('user.profile', compact('userprofile'));
+        return view('user.otheruserprofile', compact('userprofile'));
     }
 }
