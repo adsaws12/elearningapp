@@ -20,6 +20,7 @@ Route::get('/', function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/userslist', 'HomeController@users')->name('home.userslist');
+Route::get('/home/userslist/profileview/{id}', 'HomeController@profileview')->name('home.userslist.profileview');
 
 //Users
 Route::get('/admin/dashboard/users', 'UserController@users')->name('admin.dashboard.users');
@@ -43,3 +44,6 @@ Route::patch('/admin/dashboard/categories/update/{category}', 'AdminController@u
 //Question
 Route::get('/admin/dashboard/categories/category/lesson/question/{category}', 'AdminController@question')->name('admin.dashboard.categories.question');
 
+//Follow
+Route::get('/home/userslist/follow/{followed_id}', 'FollowController@follow')->name('home.userslist.follow');
+Route::get('/home/userslist/unfollow/{unfollowed_id}', 'FollowController@unfollow')->name('home.userslist.unfollow');
