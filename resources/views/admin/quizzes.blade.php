@@ -24,7 +24,7 @@
                 </tr> 
             </thead>
             {{-- @foreach ($categories as $category) --}}
-                <tr>
+                {{-- <tr>
                     <td>{{$category->id}}</td>
                     <td><a href="{{route('admin.dashboard.categories.view', $category->id)}}">{{$category->title}}</a></td>
                     <td>{{$category->description}}</td>
@@ -36,7 +36,7 @@
                         </form>
                         <a href="#" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
                     </td>
-                </tr>
+                </tr> --}}
             {{-- @endforeach --}}
            
         </table>

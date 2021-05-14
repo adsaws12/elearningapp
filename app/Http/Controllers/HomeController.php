@@ -31,4 +31,9 @@ class HomeController extends Controller
         $users = User::where('id', '!=', auth()->user()->id)->get();
         return view('user.users', compact('users'));
     }
+    public function profileview($id){
+        $userprofile = User::find($id);
+
+        return view('user.profile', compact('userprofile'));
+    }
 }
