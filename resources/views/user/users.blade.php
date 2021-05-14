@@ -14,15 +14,16 @@
                             <img src="/img/3.jpg" alt="" width="50" class="ml-3">
                         </div>
                         <div>
-                            <a href="#" class=" nav-link mt-2 ml-1">{{$user->name}}</a>
+                            <a href="{{route('home.userslist.profileview', $user->id)}}" class=" nav-link mt-2 ml-1">{{$user->name}}</a>
                         </div>
                         <div class="ml-auto">
-                            {{-- @if (auth()->user()->is_following($user->id)|| auth()->user()->id == $user->id)
-                                <a href="{{url('/home/users/unfollow', ['unfollowed_id'=>$user->id]) }}" class="btn btn-danger mt-2 float-right mb-2 mr-2">UnFollow</a>
-                            @else
-                                <a href="{{url('/home/users/follow', ['followed_id'=>$user->id]) }}" class="btn btn-primary mt-2 float-right mb-2 mr-2">Follow</a>
-                            @endif --}}
-                            <button type="submit" class="btn btn-primary mr-2 mt-2">Follow</button>
+                                <p>{{auth()->user()->following()->count()}}</p>
+                            @if (auth()->user()->is_following($user->id))
+                                <a href="{{route('home.userslist.unfollow', ['unfollowed_id'=>$user->id]) }}" class="btn btn-danger mt-2 float-right mb-2 mr-2">UnFollow</a>
+                             @else
+                                <a href="{{route('home.userslist.follow', ['followed_id'=>$user->id]) }}" class="btn btn-primary mt-2 float-right mb-2 mr-2">Follow</a>
+                            @endif
+                            {{-- <button type="submit" class="btn btn-primary mr-2 mt-2">Follow</button> --}}
                         </div>
                     </div>
                     @endforeach
