@@ -30,10 +30,8 @@ class AdminController extends Controller
         return redirect('/admin/dashboard/categories');
     }
 
-    public function view(Category $category, Question $questions){
-        $answers = $questions->quiz()->get();
-
-        dd($answers);
+    public function view(Category $category){
+        $questions = Question::all();
         return view('admin.quizzes', compact('category', 'questions'));
     }
 

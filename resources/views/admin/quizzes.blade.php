@@ -23,34 +23,44 @@
                     <th scope="col">Action</th>
                 </tr> 
             </thead>
-            {{-- @foreach ($questions as $question)
+            @foreach ($questions as $question)
                 <tr>
                     <td>{{$question->id}}</td>
                     <td>{{$question->question}}</td>
                     <td>
-                        @if ($question->choice_1 == 1)    
-                            <li class="text-success">{{$question->choice_1}}</li>
-                        @else
-                            <li class="text-primary">{{$question->choice_1}}</li>
-                        @endif
-                        @if ($question->choice_2 == 1)    
-                            <li class="text-success">{{$question->choice_2}}</li>
-                        @else
-                            <li class="text-primary">{{$question->choice_2}}</li>
-                        @endif
-                        @if ($question->choice_3 == 1)    
-                            <li class="text-success">{{$question->choice_3}}</li>
-                        @else
-                            <li class="text-primary">{{$question->choice_3}}</li>
-                        @endif
-                        @if ($question->choice_4 == 1)    
-                            <li class="text-success">{{$question->choice_4}}</li>
-                        @else
-                            <li class="text-primary">{{$question->choice_4}}</li>
-                        @endif
+                        <ul class="">
+                            @if ($question->correct_answer == 1)    
+                                <li class="text-success">{{$question->choice_1}}</li>
+                            @else
+                                <li class="text-primary">{{$question->choice_1}}</li>
+                            @endif
+                            @if ($question->correct_answer == 1)    
+                                <li class="text-success">{{$question->choice_2}}</li>
+                            @else
+                                <li class="text-primary">{{$question->choice_2}}</li>
+                            @endif
+                            @if ($question->correct_answer == 1)    
+                                <li class="text-success">{{$question->choice_3}}</li>
+                            @else
+                                <li class="text-primary">{{$question->choice_3}}</li>
+                            @endif
+                            @if ($question->correct_answer == 1)    
+                                <li class="text-success">{{$question->choice_4}}</li>
+                            @else
+                                <li class="text-primary">{{$question->choice_4}}</li>
+                            @endif
+                        </ul>
+                        <td class="row">
+                            <form method="POST"action="#">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+                            </form>
+                            <a href="#" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
+                        </td>
                     </td>
                 </tr>
-            @endforeach --}}
+            @endforeach
             {{-- @foreach ($categories as $category) --}}
                 {{-- <tr>
                     <td>{{$category->id}}</td>
