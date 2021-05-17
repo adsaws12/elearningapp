@@ -15,11 +15,11 @@
                         <hr class="mt-2">
                         <div class="row text-center">
                             <div class="col-6">
-                                <a href="#">{{auth()->user()->following()->count()}}</a>
+                                <a href="{{route('home.user.following', ['id'=>auth()->user()->id])}}">{{auth()->user()->following()->count()}}</a>
                                 <p>following</p>
                             </div>
                             <div class="col-6">
-                                <a href="#">{{auth()->user()->followers()->count()}}</a>
+                                <a href="{{route('home.user.followers', ['id'=>auth()->user()->id])}}">{{auth()->user()->followers()->count()}}</a>
                                 <p>followers</p>  
                             </div>
                         </div>
