@@ -20,7 +20,7 @@ Route::get('/', function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/userslist', 'HomeController@users')->name('home.userslist');
-Route::get('/home/userslist/profileview/{id}', 'HomeController@profileview')->name('home.userslist.profileview');
+Route::get('/home/userslist/otherprofileview/{id}', 'HomeController@profileview')->name('home.userslist.profileview');
 
 //Users
 Route::get('/admin/dashboard/users', 'UserController@users')->name('admin.dashboard.users');
@@ -29,6 +29,11 @@ Route::post('/admin/dashboard/users/register/create', 'UserController@create')->
 Route::delete('/admin/dashboard/user/delete/{user}', 'UserController@delete')->name('admin.dashboard.user.delete');
 Route::get('/admin/dashboard/users/edit/{user}', 'UserController@edit')->name('admin.dashboard.user.edit');
 Route::patch('/admin/dashboard/users/edit/update/{user}', 'UserController@update')->name('admin.dashboard.user.update');
+
+//Users Profile
+Route::get('/admin/dashboard/profile', 'AdminController@profile')->name('admin.dashboard.profile');
+Route::get('/admin/dashboard/users/edit/current/{user}', 'UserController@edituser')->name('admin.dashboard.user.edit.user');
+Route::patch('/admin/dashboard/users/edit/update/current/{user}', 'UserController@updateuser')->name('admin.dashboard.user.update.current');
 
 //Admin categories
 Route::get('/admin/dashboard/categories', 'AdminController@index')->name('admin.dashboard.categories');

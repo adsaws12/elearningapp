@@ -15,6 +15,9 @@ class AdminController extends Controller
     public function category(){
         return view('admin.category');
     }
+    public function profile(){
+        return view('user.userprofile');
+    }
     public function store(Request $request){
         Category::create([
             'title' => $request->title,

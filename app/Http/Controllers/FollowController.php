@@ -13,7 +13,6 @@ class FollowController extends Controller
         if (!auth()->user()->followed($followed_user->id)->exists()) {
             auth()->user()->following()->attach($followed_user);
         }
-        
         return back();
     }
     public function unfollow($id){
@@ -21,8 +20,10 @@ class FollowController extends Controller
         if (auth()->user()->followed($unfollowed_user->id)->exists()) {
             auth()->user()->following()->detach($unfollowed_user);
         }
-
         return back();
     }
+    
+
+
 
 }
