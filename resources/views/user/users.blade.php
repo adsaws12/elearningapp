@@ -17,7 +17,6 @@
                             <a href="{{route('home.userslist.profileview', $user->id)}}" class=" nav-link mt-2 ml-1">{{$user->name}}</a>
                         </div>
                         <div class="ml-auto">
-                                <p>{{auth()->user()->following()->count()}}</p>
                             @if (auth()->user()->is_following($user->id))
                                 <a href="{{route('home.userslist.unfollow', ['unfollowed_id'=>$user->id]) }}" class="btn btn-danger mt-2 float-right mb-2 mr-2">UnFollow</a>
                             @else
