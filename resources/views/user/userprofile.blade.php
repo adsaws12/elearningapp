@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-center">{{auth()->user()->name}}</h4>
                         <div class="text-center">
-                            <a href="{{route('admin.dashboard.user.edit', auth()->user()->id)}}" class="btn btn-primary w-50">Edit</a>
+                            <a href="{{route('admin.dashboard.user.edit.user', auth()->user()->id)}}" class="btn btn-primary w-50">Edit</a>
                         </div>
                         <hr class="mt-2">
                         <div class="row text-center">

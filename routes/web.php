@@ -32,6 +32,8 @@ Route::patch('/admin/dashboard/users/edit/update/{user}', 'UserController@update
 
 //Users Profile
 Route::get('/admin/dashboard/profile', 'AdminController@profile')->name('admin.dashboard.profile');
+Route::get('/admin/dashboard/users/edit/current/{user}', 'UserController@edituser')->name('admin.dashboard.user.edit.user');
+Route::patch('/admin/dashboard/users/edit/update/current/{user}', 'UserController@updateuser')->name('admin.dashboard.user.update.current');
 
 //Admin categories
 Route::get('/admin/dashboard/categories', 'AdminController@index')->name('admin.dashboard.categories');

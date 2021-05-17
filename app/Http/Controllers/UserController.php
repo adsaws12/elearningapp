@@ -39,10 +39,25 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'password_confirmation' => $request->password_confirmation,
             'usertype' => $request->usertype,
         ]);
         return redirect('/admin/dashboard/users');
+    }
+
+    public function edituser(User $user){
+        return view('admin.users.editcurrentuser', compact('user'));  
+    }
+    //current user
+    public function updateuser(User $user, Request $request){
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'password_confirmation' => $request->password_confirmation,
+            'usertype' => $request->usertype,
+        ]);
+        return redirect('/admin/dashboard/profile');
     }
 }
