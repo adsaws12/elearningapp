@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="ml-auto mt-2 mb-2 mr-2">
-            <a href="{{ route('admin.dashboard.categories.question', $category->id ) }}" class="btn btn-primary">Add a Question</i></a>
+            <a href="{{ route('admin.dashboard.categories.question', $category->id) }}" class="btn btn-primary">Add a Question</i></a>
         </div>
         <table class="table table-striped  justify-content-center">
             <thead class="thead-dark">
@@ -23,6 +23,34 @@
                     <th scope="col">Action</th>
                 </tr> 
             </thead>
+            {{-- @foreach ($questions as $question)
+                <tr>
+                    <td>{{$question->id}}</td>
+                    <td>{{$question->question}}</td>
+                    <td>
+                        @if ($question->choice_1 == 1)    
+                            <li class="text-success">{{$question->choice_1}}</li>
+                        @else
+                            <li class="text-primary">{{$question->choice_1}}</li>
+                        @endif
+                        @if ($question->choice_2 == 1)    
+                            <li class="text-success">{{$question->choice_2}}</li>
+                        @else
+                            <li class="text-primary">{{$question->choice_2}}</li>
+                        @endif
+                        @if ($question->choice_3 == 1)    
+                            <li class="text-success">{{$question->choice_3}}</li>
+                        @else
+                            <li class="text-primary">{{$question->choice_3}}</li>
+                        @endif
+                        @if ($question->choice_4 == 1)    
+                            <li class="text-success">{{$question->choice_4}}</li>
+                        @else
+                            <li class="text-primary">{{$question->choice_4}}</li>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach --}}
             {{-- @foreach ($categories as $category) --}}
                 {{-- <tr>
                     <td>{{$category->id}}</td>

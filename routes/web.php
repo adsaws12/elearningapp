@@ -44,9 +44,10 @@ Route::delete('/admin/dashboard/categories/delete/{category}', 'AdminController@
 Route::get('/admin/dashboard/categories/edit/{category}', 'AdminController@edit')->name('admin.dashboard.categories.edit');
 Route::patch('/admin/dashboard/categories/update/{category}', 'AdminController@update')->name('admin.dashboard.categories.update');
 
-//Question
-Route::get('/admin/dashboard/categories/category/lesson/question/{category}', 'AdminController@question')->name('admin.dashboard.categories.question');
-
 //Follow
 Route::get('/home/userslist/follow/{followed_id}', 'FollowController@follow')->name('home.userslist.follow');
 Route::get('/home/userslist/unfollow/{unfollowed_id}', 'FollowController@unfollow')->name('home.userslist.unfollow');
+
+//Quiz
+Route::get('/admin/dashboard/categories/category/lesson/question/{category}', 'QuizController@question')->name('admin.dashboard.categories.question');
+Route::post('/admin/dashboard/categories/category/lesson/question/{category}/answer', 'QuizController@answer');
