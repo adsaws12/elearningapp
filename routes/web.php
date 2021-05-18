@@ -52,3 +52,5 @@ Route::get('/admin/dashboard/categories/category/lesson/question/{category}', 'A
 //Follow
 Route::get('/home/userslist/follow/{followed_id}', 'FollowController@follow')->name('home.userslist.follow');
 Route::get('/home/userslist/unfollow/{unfollowed_id}', 'FollowController@unfollow')->name('home.userslist.unfollow');
+Route::get('/home/user/following/{id}', 'FollowController@following')->name('home.user.following');
+Route::get('/home/user/followers/{id}', 'FollowController@followers')->name('home.user.followers');
