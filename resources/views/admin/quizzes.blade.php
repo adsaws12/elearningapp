@@ -34,17 +34,17 @@
                             @else
                                 <li class="text-primary">{{$question->choice_1}}</li>
                             @endif
-                            @if ($question->correct_answer == 1)    
+                            @if ($question->correct_answer)    
                                 <li class="text-success">{{$question->choice_2}}</li>
                             @else
                                 <li class="text-primary">{{$question->choice_2}}</li>
                             @endif
-                            @if ($question->correct_answer == 1)    
+                            @if ($question->correct_answer)    
                                 <li class="text-success">{{$question->choice_3}}</li>
                             @else
                                 <li class="text-primary">{{$question->choice_3}}</li>
                             @endif
-                            @if ($question->correct_answer == 1)    
+                            @if ($question->correct_answer)    
                                 <li class="text-success">{{$question->choice_4}}</li>
                             @else
                                 <li class="text-primary">{{$question->choice_4}}</li>

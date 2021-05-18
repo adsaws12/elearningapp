@@ -16,35 +16,35 @@
                         <input type="text" name="question" class="form-control">
                     </div>
                     <div class="col-6">
-                        <div class="form-radio mb-3">
+                        <div class="form-radio mb-3 col-12">
                             <label>Choice 1</label>
                             <input type="text" name="choice_1" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_1" value="1" required="">
                                 Correct Answer
                             </label>
                         </div>
-                        <div class="form-radio mb-3">
+                        <div class="form-radio mb-3 col-12">
                             <label>Choice 2</label>
                             <input type="text" name="choice_2" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_2" value="1" required="">
                                 Correct Answer
                             </label>
                         </div>
-                        <div class="form-radio mb-3">
+                        <div class="form-radio mb-3 col-12">
                             <label>Choice 3</label>
                             <input type="text" name="choice_3" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_3" value="1" required="">
                                 Correct Answer
                             </label>
                         </div>
-                        <div class="form-radio mb-3">
+                        <div class="form-radio mb-3 col-12">
                             <label>Choice 4</label>
                             <input type="text" name="choice_4" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_4" value="1" required="">
                                 Correct Answer
                             </label>
                         </div>

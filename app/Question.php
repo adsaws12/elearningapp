@@ -18,4 +18,8 @@ class Question extends Model
     public function quiz() {
         return $this->belongsTo('App\Category');
     }
+
+    protected $attributes = [
+        'correct_answer' => 0,
+    ];
 }
