@@ -18,39 +18,42 @@
                     <div class="col-6">
                         <div class="form-radio mb-3 col-12">
                             <label>Choice 1</label>
-                            <input type="text" name="choice_1" class="form-control">
+                            <input type="text" name="options[1]" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_1" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" value="1" required="">
                                 Correct Answer
                             </label>
                         </div>
                         <div class="form-radio mb-3 col-12">
                             <label>Choice 2</label>
-                            <input type="text" name="choice_2" class="form-control">
+                            <input type="text" name="options[2]" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_2" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" value="2" required="">
                                 Correct Answer
                             </label>
                         </div>
                         <div class="form-radio mb-3 col-12">
                             <label>Choice 3</label>
-                            <input type="text" name="choice_3" class="form-control">
+                            <input type="text" name="options[3]" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_3" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" value="3" required="">
                                 Correct Answer
                             </label>
                         </div>
                         <div class="form-radio mb-3 col-12">
                             <label>Choice 4</label>
-                            <input type="text" name="choice_4" class="form-control">
+                            <input type="text" name="options[4]" class="form-control">
                             <label class="form-radio-label" style="cursor: pointer">
-                                <input type="radio" class="form-radio-input" name="correct_answer" id="option_4" value="1" required="">
+                                <input type="radio" class="form-radio-input" name="correct_answer" value="4" required="">
                                 Correct Answer
                             </label>
                         </div>
                     </div>
                     <div class="col-12 ">
-                            <button type="submit" class="btn btn-primary float-right mr-2">Create Question</i></button>
+                        <div class="float-right">
+                            <button type="submit" class="btn btn-primary mr-2">Create Question</i></button>
+                            <a href="{{route('admin.dashboard.categories.view', $category->id)}}" class="btn btn-secondary mr-2">Back</a>
+                        </div>
                     </div>
                 </div>
             </form>

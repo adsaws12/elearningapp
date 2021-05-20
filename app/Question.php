@@ -8,18 +8,14 @@ class Question extends Model
 {
     public $fillable = [
         'question', 
-        'choice_1',
-        'choice_2',
-        'choice_3',
-        'choice_4',
-        'correct_answer'
+        'category_id'
     ];
 
-    public function quiz() {
-        return $this->belongsTo('App\Category');
+    public function category() {
+        return $this->belongsTo('App\Category', 'category_id');
     }
 
-    protected $attributes = [
-        'correct_answer' => 0,
-    ];
+    public function answers() {
+        return $this->hasMany('App\Option');
+    }
 }

@@ -13,7 +13,10 @@
                 </div>
                     <label>Description</label>
                     <textarea class="form-control" rows="4" name='description'></textarea>
-                    <button type="submit" class="btn btn-primary mt-2 float-right ">Create Category</button>
+                    <div class="float-right mt-2">
+                        <button type="submit" class="btn btn-primary mr-2">Create Category</button>
+                        <a href="{{ route('admin.dashboard.categories') }}" class="btn btn-secondary mr-2">Back</a>
+                    </div>
                 </form>
             </div>
         </div>

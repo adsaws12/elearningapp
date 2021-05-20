@@ -27,6 +27,7 @@ class UserController extends Controller
             'password_confirmation' => $request->password_confirmation,
             'usertype' => $request->usertype,
         ]);
+        
         return redirect('/admin/dashboard/users');
     }
 
@@ -48,6 +49,7 @@ class UserController extends Controller
             'password_confirmation' => $request->password_confirmation,
             'usertype' => $request->usertype,
         ]);
+
         return redirect('/admin/dashboard/users');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Category;
 use App\Question;
+use App\Option;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -27,12 +28,14 @@ class AdminController extends Controller
             'title' => $request->title,
             'description' => $request->description,
         ]);
+        
         return redirect('/admin/dashboard/categories');
     }
 
-    public function view(Category $category){
-        $questions = Question::all();
-        return view('admin.quizzes', compact('category', 'questions'));
+    public function view($id) {
+        $category = Category::with(['questions', 'questions.answers'])->where('id', '=', $id)->first(); 
+        
+        return view('admin.quizzes', compact('category'));
     }
 
     public function delete($id){
@@ -51,6 +54,7 @@ class AdminController extends Controller
             'title' => $request->title,
             'description' => $request->description,
         ]);
+
         return redirect('/admin/dashboard/categories');
     }
 

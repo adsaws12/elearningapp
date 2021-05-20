@@ -23,33 +23,18 @@
                     <th scope="col">Action</th>
                 </tr> 
             </thead>
-            @foreach ($questions as $question)
-                <tr>
-                    <td>{{$question->id}}</td>
-                    <td>{{$question->question}}</td>
-                    <td>
-                        <ul class="">
-                            @if ($question->correct_answer == 1)    
-                                <li class="text-success">{{$question->choice_1}}</li>
-                            @else
-                                <li class="text-primary">{{$question->choice_1}}</li>
-                            @endif
-                            @if ($question->correct_answer)    
-                                <li class="text-success">{{$question->choice_2}}</li>
-                            @else
-                                <li class="text-primary">{{$question->choice_2}}</li>
-                            @endif
-                            @if ($question->correct_answer)    
-                                <li class="text-success">{{$question->choice_3}}</li>
-                            @else
-                                <li class="text-primary">{{$question->choice_3}}</li>
-                            @endif
-                            @if ($question->correct_answer)    
-                                <li class="text-success">{{$question->choice_4}}</li>
-                            @else
-                                <li class="text-primary">{{$question->choice_4}}</li>
-                            @endif
-                        </ul>
+            @foreach ($category->questions as $question)
+                @if($question->category_id == $category->id)
+                    <tr>
+                        <td>{{$question->id}}</td>
+                        <td>{{$question->question}}</td>
+                        <td>
+                            <ul class="list-group list-group-horizontal">
+                                @foreach($question->answers as $answer)
+                                <li class="list-unstyled mr-4" style='{{ $answer->correct_answer ? 'color: green;' : null }}'>  {{$answer->options}}</li>
+                                @endforeach
+                            </ul>
+                        </td>
                         <td class="row">
                             <form method="POST"action="#">
                                 @csrf
@@ -58,26 +43,13 @@
                             </form>
                             <a href="#" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
                         </td>
-                    </td>
-                </tr>
+                    </tr>
+                @endif
             @endforeach
-            {{-- @foreach ($categories as $category) --}}
-                {{-- <tr>
-                    <td>{{$category->id}}</td>
-                    <td><a href="{{route('admin.dashboard.categories.view', $category->id)}}">{{$category->title}}</a></td>
-                    <td>{{$category->description}}</td>
-                    <td class="row">
-                        <form method="POST"action="#">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
-                        </form>
-                        <a href="#" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
-                    </td>
-                </tr> --}}
-            {{-- @endforeach --}}
-           
         </table>
+        <div class="ml-auto mt-2 mb-2 mr-2">
+            <a href="{{ route('admin.dashboard.categories')}}" class="btn btn-secondary">Back</i></a>
+        </div>
     </div>
         
 </div>
