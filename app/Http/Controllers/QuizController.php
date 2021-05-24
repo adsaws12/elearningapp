@@ -46,6 +46,7 @@ class QuizController extends Controller
     public function updatequestion(Category $category, Request $request, Question $question){
         // $questionOpt = $question->load('options');
         $questionOpt = $question->with('options')->first();
+        
         $category->update([
             'category_id' => $category->id,
             'question' => $request->question,
