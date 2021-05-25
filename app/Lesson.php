@@ -11,11 +11,11 @@ class Lesson extends Model
         'category_id'
     ];
 
-    public function users(){
-        return $this->belongsTo('App\User');
-    }
-
     public function category(){
         return $this->belongsTo('App\Category');
+    }
+    
+    public function answers(){
+        return $this->hasMany('App\Answer');
     }
 }

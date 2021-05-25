@@ -60,3 +60,5 @@ Route::delete('/admin/dashboard/categories/category/question/{category}/delete/{
 Route::get('/categories', 'TakeQuizController@index');
 Route::post('/categories/lesson', 'TakeQuizController@store')->name('lesson');
 Route::get('/categories/lessons/{lesson}', 'TakeQuizController@lessonview')->name('lessons');
+Route::post('/categories/lessons/{lesson}/answer', 'TakeQuizController@answer')->name('lessons.answer');
+Route::get('/categories/lessons/{lesson}/result', 'TakeQuizController@result')->name('lessons.result');
