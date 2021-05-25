@@ -15,11 +15,7 @@ class FollowController extends Controller
         {
             auth()->user()->following()->attach($followed_user);
         }
-<<<<<<< Updated upstream
-
-=======
         
->>>>>>> Stashed changes
         return back();
     }
     

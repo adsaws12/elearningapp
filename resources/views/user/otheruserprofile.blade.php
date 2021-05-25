@@ -24,11 +24,11 @@
                         <hr class="mt-2">
                         <div class="row text-center">
                             <div class="col-6">
-                                <a href="{{route('home.user.following', ['id'=> $userprofile->id])}}">{{$userprofile->following()->count()}}</a>
+                                <a href="#">{{$userprofile->following()->count()}}</a>
                                 <p>following</p>
                             </div>
                             <div class="col-6">
-                                <a href="{{route('home.user.followers', ['id'=> $userprofile->id])}}">{{$userprofile->followers()->count()}}</a>
+                                <a href="#">{{$userprofile->followers()->count()}}</a>
                                 <p>followers</p>  
                             </div>
                         </div>
