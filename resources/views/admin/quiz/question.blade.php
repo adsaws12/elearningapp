@@ -8,7 +8,7 @@
                 <h3>Add a Question</h3>
                 <hr>
             </div>
-            <form class="form-group" action="{{url('/admin/dashboard/categories/category/lesson/question/'. $category->id . '/answer')}}" method="POST">
+            <form class="form-group" action="{{url('/admin/dashboard/categories/category/question/'. $category->id . '/answer')}}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-6">

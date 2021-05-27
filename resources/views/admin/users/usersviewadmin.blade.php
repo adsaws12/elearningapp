@@ -38,12 +38,12 @@
                         <td>Admin</td>    
                     @endif
                     <td class="row">
+                        <a href="{{route('admin.dashboard.user.edit', $user->id)}}" class="btn btn-warning mr-2"><i class="bi bi-pencil-square"></i></a>
                         <form method="POST"action="{{route('admin.dashboard.user.delete',$user->id)}}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                         </form>
-                        <a href="{{route('admin.dashboard.user.edit', $user->id)}}" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>
             @endforeach
