@@ -65,7 +65,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Relationship');
     }
 
-    public function activity(){
+    public function activities(){
         return $this->morphOne('App\Activity', 'notifiable');
     }  
 

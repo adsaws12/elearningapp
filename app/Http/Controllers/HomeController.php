@@ -27,13 +27,10 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::where('id', '=', auth()->user()->id);
-        $activities = Activity::where('user_id', auth()->user()->id)->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')->get();
-        //  'answer', 'answer.lesson', 'answer.lesson.category')->get();
-
-        // foreach($activities as $activity){
-        //     dd($activity->answer->lesson->category->title);
-        // }
-
+        $activities = Activity::orderBy('updated_at','DESC')->where('user_id', auth()->user()->id)
+        ->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')
+        ->get();
+        
         return view('home', compact('users', 'activities'));
     }
 

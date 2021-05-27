@@ -21,8 +21,11 @@ class AdminController extends Controller
     }
 
     public function profile(){
-        $activities = Activity::where('user_id', auth()->user()->id)->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')->get();
-
+        $users = User::where('id', '=', auth()->user()->id);
+        $activities = Activity::orderBy('updated_at','DESC')->where('user_id', auth()->user()->id)
+        ->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')
+        ->get();
+        
         return view('user.userprofile', compact('activities'));
     }
 
