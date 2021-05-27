@@ -35,7 +35,7 @@ class AdminController extends Controller
     }
 
     public function view($id) {
-        $category = Category::with(['questions', 'questions.answers'])->where('id', '=', $id)->first(); 
+        $category = Category::with(['questions', 'questions.options'])->where('id', '=', $id)->first(); 
         
         return view('admin.quizzes', compact('category'));
     }

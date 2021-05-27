@@ -30,18 +30,18 @@
                         <td>{{$question->question}}</td>
                         <td>
                             <ul class="list-group list-group-horizontal">
-                                @foreach($question->answers as $answer)
+                                @foreach($question->options as $answer)
                                 <li class="list-unstyled mr-4" style='{{ $answer->correct_answer ? 'color: green;' : null }}'>  {{$answer->options}}</li>
                                 @endforeach
                             </ul>
                         </td>
                         <td class="row">
-                            <form method="POST"action="#">
+                            <a href="{{url('/admin/dashboard/categories/category/question/'. $category->id. '/edit/' . $question->id)}}" class="btn btn-warning mr-2"><i class="bi bi-pencil-square"></i></a>
+                            <form method="POST" action="{{url('/admin/dashboard/categories/category/question/'. $category->id.'/delete/'.$question->id)}}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                             </form>
-                            <a href="#" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                 @endif
