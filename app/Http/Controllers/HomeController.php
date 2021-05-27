@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Activity;
+use App\Relationship;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,8 +27,14 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::where('id', '=', auth()->user()->id);
-        
-        return view('home', compact('users'));
+        $activities = Activity::where('user_id', auth()->user()->id)->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')->get();
+        //  'answer', 'answer.lesson', 'answer.lesson.category')->get();
+
+        // foreach($activities as $activity){
+        //     dd($activity->answer->lesson->category->title);
+        // }
+
+        return view('home', compact('users', 'activities'));
     }
 
     public function users(){

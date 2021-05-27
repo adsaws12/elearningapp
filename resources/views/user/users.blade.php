@@ -17,11 +17,18 @@
                             <a href="{{route('home.userslist.profileview', $user->id)}}" class=" nav-link mt-2 ml-1">{{$user->name}}</a>
                         </div>
                         <div class="ml-auto">
-                                <p>{{auth()->user()->following()->count()}}</p>
                             @if (auth()->user()->is_following($user->id))
-                                <a href="{{route('home.userslist.unfollow', ['unfollowed_id'=>$user->id]) }}" class="btn btn-danger mt-2 float-right mb-2 mr-2">UnFollow</a>
+                                <form action="{{route('home.userslist.unfollow', ['unfollowed_id'=>$user->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger mt-2 float-right mb-2 mr-2">UnFollow</button>
+                                </form>
                             @else
-                                <a href="{{route('home.userslist.follow', ['followed_id'=>$user->id]) }}" class="btn btn-primary mt-2 float-right mb-2 mr-2">Follow</a>
+                                <form action="{{ route('home.userslist.follow', ['followed_id'=>$user->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary mt-2 float-right mb-2 mr-2">Follow</button>
+                                </form>
+                                {{-- <a href="{{route('home.userslist.follow', ['followed_id'=>$user->id]) }}" class="btn btn-primary mt-2 float-right mb-2 mr-2">Follow</a> --}}
                             @endif
                             {{-- <button type="submit" class="btn btn-primary mr-2 mt-2">Follow</button> --}}
                         </div>
