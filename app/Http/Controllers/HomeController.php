@@ -25,19 +25,17 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::where('id', '=', auth()->user()->id);
-
+        
         return view('home', compact('users'));
     }
-    
-    public function users()
-    {
+
+    public function users(){
         $users = User::where('id', '!=', auth()->user()->id)->get();
 
         return view('user.users', compact('users'));
     }
 
-    public function profileview($id)
-    {
+    public function profileview($id){
         $userprofile = User::find($id);
 
         return view('user.otheruserprofile', compact('userprofile'));

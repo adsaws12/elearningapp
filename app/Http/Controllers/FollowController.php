@@ -15,7 +15,7 @@ class FollowController extends Controller
         {
             auth()->user()->following()->attach($followed_user);
         }
-
+        
         return back();
     }
     

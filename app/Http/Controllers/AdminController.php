@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Category;
+use App\Question;
+use App\Option;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,43 +17,41 @@ class AdminController extends Controller
         return view('admin.categories', compact('categories'));
     }
 
-    public function category()
-    {
+    public function category(){
         return view('admin.category');
     }
 
-    public function profile()
-    {
+    public function profile(){
         return view('user.userprofile');
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         Category::create([
             'title' => $request->title,
             'description' => $request->description,
         ]);
-
+        
         return redirect('/admin/dashboard/categories');
     }
-    public function view(Category $category)
-    {
+
+    public function view($id) {
+        $category = Category::with(['questions', 'questions.answers'])->where('id', '=', $id)->first(); 
+        
         return view('admin.quizzes', compact('category'));
     }
 
-    public function delete($id)
-    {
+    public function delete($id){
+        
         Category::where('id',$id)->delete();
 
         return redirect('/admin/dashboard/categories');
     }
-    public function edit(Category $category)
-    {
+
+    public function edit(Category $category){
         return view('admin.editcategory', compact('category'));
     }
 
-    public function update(Category $category, Request $request)
-    {
+    public function update(Category $category, Request $request){
         $category->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -60,10 +60,5 @@ class AdminController extends Controller
         return redirect('/admin/dashboard/categories');
     }
 
-    // quiz
-    public function question()
-    {
-        return view('admin.question');
-    }
 
 }
