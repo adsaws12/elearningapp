@@ -39,7 +39,7 @@ Route::patch('/admin/dashboard/users/edit/update/current/{user}', 'UserControlle
 Route::get('/admin/dashboard/categories', 'AdminController@index')->name('admin.dashboard.categories');
 Route::get('/admin/dashboard/categories/category', 'AdminController@category')->name('admin.dashboard.categories.category');
 Route::post('/admin/dashboard/categories/category/create', 'AdminController@store')->name('admin.dashboard.categories.category.create');
-Route::get('/admin/dashboard/categories/category/lesson/{category}', 'AdminController@view')->name('admin.dashboard.categories.view');
+Route::get('/admin/dashboard/categories/category/{category}', 'AdminController@view')->name('admin.dashboard.categories.view');
 
 //categories delete and edit
 Route::delete('/admin/dashboard/categories/delete/{category}', 'AdminController@delete')->name('admin.dashboard.categories.delete');
@@ -54,5 +54,8 @@ Route::get('/home/user/followers/{id}', 'FollowController@following')->name('hom
 
 
 //Quiz
-Route::get('/admin/dashboard/categories/category/lesson/question/{category}', 'QuizController@question')->name('admin.dashboard.categories.question');
-Route::post('/admin/dashboard/categories/category/lesson/question/{category}/answer', 'QuizController@answer');
+Route::get('/admin/dashboard/categories/category/question/{category}', 'QuizController@question')->name('admin.dashboard.categories.question');
+Route::post('/admin/dashboard/categories/category/question/{category}/answer', 'QuizController@answer');
+Route::get('/admin/dashboard/categories/category/question/{category}/edit/{question}', 'QuizController@editquestion');
+Route::patch('/admin/dashboard/categories/category/question/{category}/edit/{question}/update/', 'QuizController@updatequestion');
+Route::delete('/admin/dashboard/categories/category/question/{category}/delete/{question}', 'QuizController@deletequestion');
