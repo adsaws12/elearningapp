@@ -45,11 +45,8 @@ Route::get('/admin/dashboard/categories/edit/{category}', 'AdminController@edit'
 Route::patch('/admin/dashboard/categories/update/{category}', 'AdminController@update')->name('admin.dashboard.categories.update');
 
 //Follow
-Route::get('/home/userslist/follow/{followed_id}', 'FollowController@follow')->name('home.userslist.follow');
-Route::get('/home/userslist/unfollow/{unfollowed_id}', 'FollowController@unfollow')->name('home.userslist.unfollow');
-Route::get('/home/user/following/{id}', 'FollowController@following')->name('home.user.following');
-Route::get('/home/user/followers/{id}', 'FollowController@following')->name('home.user.followers');
-
+Route::post('/home/userslist/follow/{followed_id}', 'FollowController@follow')->name('home.userslist.follow');
+Route::delete('/home/userslist/unfollow/{unfollowed_id}', 'FollowController@unfollow')->name('home.userslist.unfollow');
 
 //Quiz
 Route::get('/admin/dashboard/categories/category/question/{category}', 'QuizController@question')->name('admin.dashboard.categories.question');

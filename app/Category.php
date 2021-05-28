@@ -18,4 +18,8 @@ class Category extends Model
     public function lessons(){
         return $this->hasMany('App\Lesson');
     }
+
+    public function answer(){
+        return $this->belongsTo('App\Answer');
+    }
 }

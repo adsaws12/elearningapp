@@ -11,14 +11,17 @@
                     <div class="card-body">
                         <h4 class="card-title text-center">{{$userprofile->name}}</h4>
                         <div class="text-center">
-                            @if (auth()->user()->id != $userprofile->id )
-                                @if (auth()->user()->is_following($userprofile->id))
-                                    <a href="{{route('home.userslist.unfollow', ['unfollowed_id'=>$userprofile->id]) }}" class="btn btn-danger w-50">UnFollow</a>
-                                @else
-                                    <a href="{{route('home.userslist.follow', ['followed_id'=>$userprofile->id]) }}" class="btn btn btn-primary w-50">Follow</a>
-                                @endif
+                           @if (auth()->user()->is_following($userprofile->id))
+                                <form action="{{route('home.userslist.unfollow', ['unfollowed_id'=>$userprofile->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger mt-2 w-50 mx-auto mb-2 mr-2">UnFollow</button>
+                                </form>
                             @else
-                                <a href="{{route('admin.dashboard.user.edit', auth()->user()->id)}}" class="btn btn-primary w-50">Edit</a>
+                                <form action="{{ route('home.userslist.follow', ['followed_id'=>$userprofile->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary mt-2 w-50 mx-auto mb-2 mr-2">Follow</button>
+                                </form>
                             @endif
                         </div>
                         <hr class="mt-2">

@@ -6,6 +6,7 @@ use App\User;
 use App\Category;
 use App\Question;
 use App\Option;
+use App\Activity;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -22,7 +23,12 @@ class AdminController extends Controller
     }
 
     public function profile(){
-        return view('user.userprofile');
+        $users = User::where('id', '=', auth()->user()->id);
+        $activities = Activity::orderBy('updated_at','DESC')->where('user_id', auth()->user()->id)
+        ->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')
+        ->get();
+        
+        return view('user.userprofile', compact('activities'));
     }
 
     public function store(Request $request){
