@@ -24,7 +24,9 @@ class TakeQuizController extends Controller
             'user_id' => auth()->user()->id,
             'category_id' => $request->category_id
         ]);
-
+        $lesson->activity()->create([
+            'user_id' => auth()->user()->id,
+        ]);
         return redirect()->route('lessons', ['lesson' => $lesson]);
     }
 
@@ -62,15 +64,5 @@ class TakeQuizController extends Controller
             
             return view('takequiz.result', compact('lesson', 'answers')); 
         }
-    }
-
-    public function result(Lesson $lesson){
-       
-        // $lessons = Lesson::where('user_id', '=' ,auth()->user()->id)->with('answers', 'category')->first();
-        
-        // $questions = $lesson->answers;
-        
-        // $option = 
-        return view('takequiz.result', compact('questions', 'lessons'));
     }
 }
