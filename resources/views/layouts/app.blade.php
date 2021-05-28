@@ -56,7 +56,7 @@
                             @endif
                         @else
                             <li class="nav-item ">
-                                <a href="#" class="nav-link">Categories</a>
+                                <a href="/categories" class="nav-link">Categories</a>
                             </li>
                             <li class="nav-item ">
                                 <a href="{{ route('home.userslist') }}" class="nav-link">Users</a>
@@ -67,7 +67,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.dashboard.profile') }}">
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
                                         Profile
                                     </a>
                                     @if (Auth::user()->usertype == 0)
