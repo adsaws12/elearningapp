@@ -31,9 +31,7 @@ Route::get('/admin/dashboard/users/edit/{user}', 'UserController@edit')->name('a
 Route::patch('/admin/dashboard/users/edit/update/{user}', 'UserController@update')->name('admin.dashboard.user.update');
 
 //Users Profile
-Route::get('/admin/dashboard/profile', 'AdminController@profile')->name('admin.dashboard.profile');
-Route::get('/admin/dashboard/users/edit/current/{user}', 'UserController@edituser')->name('admin.dashboard.user.edit.user');
-Route::patch('/admin/dashboard/users/edit/update/current/{user}', 'UserController@updateuser')->name('admin.dashboard.user.update.current');
+Route::get('/profile', 'AdminController@profile')->name('profile');
 
 //Admin categories
 Route::get('/admin/dashboard/categories', 'AdminController@index')->name('admin.dashboard.categories');
@@ -59,3 +57,11 @@ Route::post('/admin/dashboard/categories/category/question/{category}/answer', '
 Route::get('/admin/dashboard/categories/category/question/{category}/edit/{question}', 'QuizController@editquestion');
 Route::patch('/admin/dashboard/categories/category/question/{category}/edit/{question}/update/', 'QuizController@updatequestion');
 Route::delete('/admin/dashboard/categories/category/question/{category}/delete/{question}', 'QuizController@deletequestion');
+
+
+//User Categories
+Route::get('/categories', 'TakeQuizController@index');
+Route::post('/categories/lesson', 'TakeQuizController@store')->name('lesson');
+Route::get('/categories/lessons/{lesson}', 'TakeQuizController@lessonview')->name('lessons');
+Route::post('/categories/lessons/{lesson}/answer', 'TakeQuizController@answer')->name('lessons.answer');
+Route::get('/categories/lessons/{lesson}/result', 'TakeQuizController@result')->name('lessons.result');
