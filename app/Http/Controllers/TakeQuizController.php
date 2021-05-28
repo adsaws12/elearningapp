@@ -39,17 +39,25 @@ class TakeQuizController extends Controller
     public function answer($id, Request $request){
         $lesson = Lesson::where('id', '=', $id)->with('category')->first();
         foreach($request->ur_answer as $key => $option)
-        Answer::create([
+        $answer = Answer::create([
             'lesson_id' => $lesson->id,
             'option_id' => $request->option_id,
             'question_id' => $request->question_id,
             'ur_answer' => $option,
         ]);
-            
+
         if($request->nextPageUrl > $request->lastPageUrl){
+            
             return redirect($request->nextPageUrl);
         }
         else{
+            $takelesson = Answer::where('lesson_id', $answer->lesson_id)->first();
+            if($takelesson->exists()){
+                $takelesson->activity()->create([
+                    'user_id' => auth()->user()->id,
+                ]);
+            }
+            
             $answers = Answer::where('lesson_id', '=', $lesson->id)->with('option', 'option.question','option.question.correctAnswer')->get();
             
             return view('takequiz.result', compact('lesson', 'answers')); 

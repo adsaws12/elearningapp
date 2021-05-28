@@ -14,7 +14,7 @@ class Answer extends Model
     ];
     
     public function lesson(){
-        return $this->belongsTo('App\Lesson');
+        return $this->belongsTo('App\Lesson', 'lesson_id');
     }
 
     public function option(){
@@ -23,5 +23,9 @@ class Answer extends Model
 
     public function question(){
         return $this->belongsTo('App\Question', 'question_id', 'id');
+    }
+    
+    public function activity(){
+        return $this->morphMany('App\Activity', 'notifiable');
     }
 }

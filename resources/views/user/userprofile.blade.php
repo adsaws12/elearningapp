@@ -30,9 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-12">
-                asdasdsa
-            </div>
+            @include('activities')
         </div>
     </div>
 @endsection

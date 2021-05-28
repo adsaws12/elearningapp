@@ -45,8 +45,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\User', 'relationships', 'follower_id', 'followed_id');
     }
 
-    public function followed($followed_id)
-    {
+    public function followed($followed_id){
         return $this->belongsToMany('App\User', 'relationships', 'follower_id', 'followed_id')->where('followed_id', '=', $followed_id);
     }
 
@@ -62,4 +61,13 @@ class User extends Authenticatable
     public function lessons(){
         return $this->hasMany('App\Lesson');
     }
+
+    public function relationship(){
+        return $this->belongsTo('App\Relationship');
+    }
+
+    public function activities(){
+        return $this->morphOne('App\Activity', 'notifiable');
+    }  
+
 }
