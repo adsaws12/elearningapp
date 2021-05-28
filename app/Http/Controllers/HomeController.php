@@ -31,7 +31,11 @@ class HomeController extends Controller
         ->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')
         ->get();
         
-        return view('home', compact('users', 'activities'));
+        $activitiesCount = Activity::where('user_id', auth()->user()->id)->where('notifiable_type', '=', 'App\Answer')->count();
+        $lessonCount = Activity::where('user_id', auth()->user()->id)->where('notifiable_type', '=', 'App\Lesson')->count();
+
+
+        return view('home', compact('users', 'activities', 'activitiesCount', 'lessonCount'));
     }
 
     public function users(){
@@ -43,6 +47,11 @@ class HomeController extends Controller
     public function profileview($id){
         $userprofile = User::find($id);
 
-        return view('user.otheruserprofile', compact('userprofile'));
+        $activities = Activity::orderBy('updated_at','DESC')->where('user_id', $userprofile->id)
+        ->with('relationship', 'relationship.followedUser', 'answer', 'answer.lesson', 'answer.lesson.category')
+        ->get();
+
+        $activitiesCount = Activity::where('user_id', $userprofile->id)->where('notifiable_type', '=', 'App\Answer')->count();
+        return view('user.otheruserprofile', compact('userprofile', 'activities', 'activitiesCount'));
     }
 }

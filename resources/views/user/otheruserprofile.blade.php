@@ -37,14 +37,12 @@
                         </div>
                         <hr class="mt-3">
                         <div class="text-center">
-                            <p>Learned 0 words</p>  
+                            <p>Learned {{$activitiesCount}} words</p>  
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-12">
-                asdasdsa
-            </div>
+            @include('user.otheruseractivity')
         </div>
     </div>
 @endsection

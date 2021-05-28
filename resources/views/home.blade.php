@@ -14,6 +14,9 @@
                     <h1>
                         {{auth()->user()->name}}
                     </h1>
+                   
+                    <p>Learn {{$activitiesCount}} words</p>
+                    <p>Learn {{$lessonCount}} lesson</p>
                 </div>
             </div>
         </div>
