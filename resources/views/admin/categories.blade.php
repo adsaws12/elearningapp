@@ -32,12 +32,12 @@
                     <td><a href="{{route('admin.dashboard.categories.view', $category->id)}}">{{$category->title}}</a></td>
                     <td>{{$category->description}}</td>
                     <td class="row">
+                        <a href="{{route('admin.dashboard.categories.edit', $category->id)}}" class="btn btn-warning mr-2"><i class="bi bi-pencil-square"></i></a>
                         <form method="POST"action="{{route('admin.dashboard.categories.delete',$category->id)}}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                         </form>
-                        <a href="{{route('admin.dashboard.categories.edit', $category->id)}}" class="btn btn-warning ml-2"><i class="bi bi-pencil-square"></i></a>
                     </td>
                 </tr>
             @endforeach

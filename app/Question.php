@@ -12,10 +12,10 @@ class Question extends Model
     ];
 
     public function category() {
-        return $this->belongsTo('App\Category', 'category_id');
+        return $this->belongsTo('App\Category');
     }
 
-    public function answers() {
+    public function options() {
         return $this->hasMany('App\Option');
     }
 }
